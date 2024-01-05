@@ -1,0 +1,182 @@
+body{
+    /* background-color: #333; */
+    font-family: 'Roboto', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+/* full sidebar */
+.sidebar{
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+    transition: all .5s ease; /* sidebar transition during motion in and out*/
+}
+
+/* Heading(Dru interiors) */
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 250px; /* lines below the links*/
+    line-height: 65px; /* for height of the links */
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1); /* for nav-side lines */
+    border-bottom: 1px solid #000;
+    transition: .4s;
+
+}
+
+ul li:hover a{
+    padding-left: 50px;  /* moving navlist on hover*/
+}
+
+/* icons naavbar */
+.sidebar ul a i{
+    margin-right: 16px;
+}
+
+/* refrencing ID for input */
+#check{
+    display: none;
+}
+
+/* list and cancel buttons */
+label #btn, label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #042331;
+    border-radius: 3px;
+}
+
+/* diplay button */
+label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: white;    
+    padding: 6px 12px; /* background size */
+    transition: all .5s ease; /* fade in and fade out of the button motion */
+
+}
+
+/* cancel button */
+label #cancel{
+    z-index: 1111;
+    left: -195px; /* if side bar = 0, cancel button = 0(display) */
+    top: 17px;
+    font-size: 30px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease; /* fade in and out of the cancel button */
+}
+
+/* display sidebar when checked */
+#check:checked ~ .sidebar{
+    left: 0;   /* complete dispay of the nav bar from the left */
+
+}
+
+/* when nav is displaying*/
+#check:checked ~ label #btn{
+    left: 250;   /* complete dispay of the button to the left(disapper) */
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+/* when nav is displaying, cancel button displays */
+#check:checked ~ label #cancel{
+    left: 195px;
+}
+
+/* section content shifting onclick */
+#check:checked ~ section{
+    margin-left: 250px;
+}
+
+/* section for the page main content */
+section{
+    background: url(images/warfire.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: all .5s ease;
+}
+/* Complete for smaller devices */
+
+
+
+
+
+
+
+/* Responsive to different screen sizes */
+@media only screen and (min-width: 768px){
+    /* full sidebar */
+    .sidebar{
+        left: -400px;
+        width: 400px;
+
+    }
+    /* Heading(Dru interiors) */
+    .sidebar header {
+        font-size: 30px;
+    }
+    /* side bar inks*/
+    .sidebar ul a{
+        width: 100%; /* for height of the links */
+        padding-left: 100px;
+    }
+    /* diplay button */
+    label #btn{
+    font-size: 45px;   
+    padding: 24px 32px; /* background size */
+    }
+    /* cancel button */
+    label #cancel{
+    left: -345px; /* if side bar = 0, cancel button = 0(display) */ 
+    font-size: 50px;
+    padding: 4px 9px;
+    }
+    #check:checked ~ label #cancel{
+        left: 345px;
+    }
+    #check:checked ~ section{
+        margin-left: 400px;
+    }
+    /* section for the page main content */
+    section{
+        background: url(images/gamenight.png) no-repeat;
+        background-size: cover;
+        
+    }
+   
+}
+
+
+@media only screen and (min-width: 1200px){
+    section{
+        background: url(images/gamer.png) no-repeat;
+    }
+}
+
